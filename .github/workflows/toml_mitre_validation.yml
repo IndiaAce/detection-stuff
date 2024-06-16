@@ -4,7 +4,7 @@ name: TOML/Mitre Validation
 on:
   workflow_dispatch:
 jobs:
-  build:
+  toml-mitre-validation:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
