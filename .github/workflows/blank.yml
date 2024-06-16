@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: TOML Validation
+name: TOML/Mitre Validation
 on:
   workflow_dispatch:
 jobs:
@@ -9,6 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      run: |
-        python development/tomlval.py
-        python development/mitre.py
+      - run: |
+          python development/tomlval.py
+          python development/mitre.py
