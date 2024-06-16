@@ -53,4 +53,3 @@ for root, dirs, files in os.walk("detections/"):
             rule_id=(alert['rule']['rule_id'])
             url = url + "?rule_id=" + rule_id
             elastic_data = rq.put(url, headers=headers, data=data).json()
-            print(elastic_data)
