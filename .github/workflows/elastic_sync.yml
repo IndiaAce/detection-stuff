@@ -1,6 +1,8 @@
 name: Updating Detections
 on:
   push:
+    branches:
+      - main
     path:
       '**.toml'
   workflow_dispatch:
@@ -12,9 +14,10 @@ jobs:
       ELASTIC_KEY: ${{secrets.ELASTIC_KEY }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v4
         with:
-          fetch-depth: 0  # OR "2" -> To retrieve the preceding commit.
           python-version: '3.12.4'
 
       - name: Get changed files
@@ -23,6 +26,7 @@ jobs:
 
       - name: Run Update Script
         env:
+          ELASTIC_KEY: ${{secrets.ELASTIC_KEY }}
           CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
           pip install requests
