@@ -11,7 +11,6 @@ jobs:
       - uses: actions/setup-python@v4
         with :
           python-version: '3.12.4'
-      - run: |
-          pip install requests
-          python dev_link/tomlval.py
-          python dev_link/mitre.py
+      - run: pip install requests
+      - run: python dev_link/tomlval.py
+      - run: python dev_link/mitre.py
