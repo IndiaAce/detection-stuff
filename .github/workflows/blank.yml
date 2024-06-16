@@ -10,5 +10,5 @@ jobs:
       - uses: actions/checkout@v4
 
       - run: |
-          python development/tomlval.py
-          python development/mitre.py
+          python development/dev_link/tomlval.py
+          python development/dev_link/mitre.py
