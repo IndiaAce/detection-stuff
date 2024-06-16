@@ -5,6 +5,7 @@ creation_date = "2023/05/11"
 author = ["LW"]
 description = "Using sysmon data, we're triggering on PowerShell logs where Invoke-WebRequest and .bat strings are observed."
 from = "now-6m"
+name = "PowerShell Invoke-WebRequest Downloading .BAT File"
 risk_score = 50
 severity = "medium"
 type = "query"
