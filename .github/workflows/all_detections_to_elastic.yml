@@ -1,19 +1,17 @@
 # This is a basic workflow to help you get started with Actions
 
-name: TOML/Mitre Validation
+name: All Detections To Elastic
 on:
-  push:
-    path:
-      - '**.toml'
   workflow_dispatch:
 jobs:
-  toml-mitre-validation:
+  elastic-detections-all:
     runs-on: ubuntu-latest
+    env:
+      ELASTIC_KEY: ${{secrets.ELASTIC_KEY }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
         with :
           python-version: '3.12.4'
       - run: pip install requests
-      - run: python dev_link/tomlval.py
-      - run: python dev_link/mitre.py
+      - run: python dev_link/toml_to_json.py
